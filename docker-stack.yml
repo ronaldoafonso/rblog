@@ -1,0 +1,25 @@
+---
+version: '3.7'
+
+services:
+  rblog:
+    image: ronaldoafonso/rblog:v0.0.1
+    networks:
+      - rblog_internal_net
+    deploy:
+      replicas: 1
+  rblog_nginx:
+    image: ronaldoafonso/rblog_nginx:v0.0.1
+    networks:
+      - rblog_internal_net
+      - rblog_proxy_net
+    ports:
+      - target: 80
+        published: 80
+        mode: ingress
+
+networks:
+  rblog_internal_net:
+    internal: true
+  rblog_proxy_net:
+...
