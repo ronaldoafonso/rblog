@@ -1,0 +1,30 @@
+---
+version: '3.7'
+
+services:
+  rblog_proxy:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    image: rblog_nginx:v0.0.1
+    networks:
+      - rblog_internal_net
+      - rblog_proxy_net
+    ports:
+      - "80:80"
+    depends_on:
+      - rblog
+  rblog:
+    build:
+      context: .
+    image: rblog:v0.0.1
+    networks:
+      - rblog_internal_net
+
+networks:
+  rblog_internal_net:
+    internal: true
+    name: rblog_internal_net
+  rblog_proxy_net:
+    name: rblog_proxy_net
+...
