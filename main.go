@@ -25,15 +25,16 @@ func index(w http.ResponseWriter, r *http.Request) {
     <h1>Ronaldo Afonso - Linux, network and some programming</h1>
   </header>
   <main>
-    <p>Hi!</p>
+    <p>Hi there!</p>
     <p>My name is Ronaldo Afonso.</p>
     <p>I've been working in the Linux and network fields for the last 20 years.</p>
-    <p>I first met Linux when I installed an Slackware 3.4 distribution.</p>
-    <p>I can't exactly remember when it was, but I would say that it was in 1999.</p>
-    <p>There wasn't a plenty of documentation that time as there is today.</p>
-    <p>A friend of mine just lent me a Linux Magazine with a Slackware CD-ROM. I tried to install it on my computer and guess what? I did it.</p>
+    <p>I first met Linux when I installed an Slackware distro version 3.4.</p>
+    <p>I can't even remember exactly when it was, but I would say that it was in 1999.</p>
+    <p>At that time, there wasn't plenty of documentation as there is today.</p>
+    <p>One day a friend of mine just lent me a Linux Magazine with a bundled Slackware CD-ROM.</p>
+    <p>So I tried to install it on my computer and guess what? After three months of trying, I did it.</p>
     <p>I've been using Linux since then.</p>
-    <p>This blog is about my experiences with Linux, network and programming.</p>
+    <p>This blog is about my experience with Linux, network and programming.</p>
     <p>I really hope you enjoy it.<p>
     <p>[]s</p>
     <p>Ronaldo Afonso</p>
