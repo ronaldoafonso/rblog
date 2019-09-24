@@ -17,7 +17,7 @@ RUN go get -d -v ./...
 
 WORKDIR /go/src/github.com/ronaldoafonso/rblog
 
-COPY --chown=rblog:rblog main.go /go/src/github.com/ronaldoafonso/rblog
+COPY --chown=rblog:rblog *.go *.html /go/src/github.com/ronaldoafonso/rblog/
 
 RUN go install -v github.com/ronaldoafonso/rblog
 
