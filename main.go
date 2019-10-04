@@ -14,7 +14,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 		"I've been working in the Linux and network fields for the last 20 years.",
 		"I first met Linux when I installed an Slackware distro version 3.4.",
 		"I can't even remember exactly when it was, but I would say that it was in 1999.",
-		"At that time, there wasn't plenty of documentation as there is today.",
+		"At that time, there weren't plenty of documentation as there are today.",
 		"One day a friend of mine just lent me a Linux Magazine with a bundled Slackware CD-ROM.",
 		"So I tried to install it on my computer and guess what? After three months of trying, I did it.",
 		"I've been using Linux since then.",
