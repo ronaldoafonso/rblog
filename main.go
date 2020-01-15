@@ -18,11 +18,21 @@ func main() {
 	server.ListenAndServe()
 }
 
+var templates []string = []string{
+	"layout.html",
+	"head.html",
+	"header.html",
+	"index.html",
+	"footer.html",
+}
+
 // "index" page for rblog.
 func index(w http.ResponseWriter, r *http.Request) {
-	indexTemplate, err := template.ParseFiles("index.html", "head.html", "header.html", "footer.html")
+	templates[3] = "index.html"
+	fmt.Println(templates)
+	indexTemplate, err := template.ParseFiles(templates...)
 	if err == nil {
-		indexTemplate.Execute(w, "")
+		indexTemplate.ExecuteTemplate(w, "layout", "")
 	} else {
 		fmt.Println(err)
 	}
@@ -30,9 +40,11 @@ func index(w http.ResponseWriter, r *http.Request) {
 
 // "about" page for rblog.
 func about(w http.ResponseWriter, r *http.Request) {
-	aboutTemplate, err := template.ParseFiles("about.html", "head.html", "header.html", "footer.html")
+	templates[3] = "about.html"
+	fmt.Println(templates)
+	aboutTemplate, err := template.ParseFiles(templates...)
 	if err == nil {
-		aboutTemplate.Execute(w, "")
+		aboutTemplate.ExecuteTemplate(w, "layout", "")
 	} else {
 		fmt.Println(err)
 	}
