@@ -17,11 +17,12 @@ services:
   rblog:
     build:
       context: .
-    image: rblog:v0.0.7
+    image: rblog:v0.0.8
     volumes:
       - type: bind
         source: .
         target: /go/src/github.com/ronaldoafonso/rblog
+    command: ["/bin/sh", "-c", "while :; do sleep 10; done"]
     networks:
       - rblog_internal_net
 

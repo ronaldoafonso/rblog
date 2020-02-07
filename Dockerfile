@@ -16,6 +16,8 @@ ENV CGO_ENABLED 0
 
 RUN go get -v github.com/gorilla/mux
 
+RUN go get -v github.com/gorilla/handlers
+
 WORKDIR /go/src/github.com/ronaldoafonso/rblog
 
 COPY --chown=rblog:rblog *.go *.html /go/src/github.com/ronaldoafonso/rblog/

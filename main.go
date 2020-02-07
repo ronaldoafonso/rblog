@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
 var (
@@ -21,15 +23,16 @@ var (
 
 func main() {
 	articles = make(map[string]func(http.ResponseWriter, *http.Request))
-    articles["index"] = index
+	articles["index"] = index
 	articles["about"] = about
 
 	router := mux.NewRouter()
 	router.HandleFunc("/{article}", handleArticle)
 	router.HandleFunc("/", index)
+	logRouter := handlers.LoggingHandler(os.Stdout, router)
 
 	server := &http.Server{
-		Handler: router,
+		Handler: logRouter,
 		Addr:    ":8080",
 	}
 
@@ -44,7 +47,7 @@ func handleArticle(w http.ResponseWriter, r *http.Request) {
 		article(w, r)
 	} else {
 		w.WriteHeader(http.StatusNotFound)
-        fmt.Fprintf(w, "Page Not Found.")
+		fmt.Fprintf(w, "Page Not Found.")
 	}
 }
 
