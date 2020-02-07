@@ -2,34 +2,55 @@ package main
 
 import (
 	"fmt"
+	"github.com/gorilla/mux"
 	"html/template"
+	"log"
 	"net/http"
 )
 
+var (
+	templates []string = []string{
+		"layout.html",
+		"head.html",
+		"header.html",
+		"index.html",
+		"footer.html",
+	}
+	articles map[string]func(http.ResponseWriter, *http.Request)
+)
+
 func main() {
-	server := http.Server{
-		Addr: "0.0.0.0:8080",
+	articles = make(map[string]func(http.ResponseWriter, *http.Request))
+    articles["index"] = index
+	articles["about"] = about
+
+	router := mux.NewRouter()
+	router.HandleFunc("/{article}", handleArticle)
+	router.HandleFunc("/", index)
+
+	server := &http.Server{
+		Handler: router,
+		Addr:    ":8080",
 	}
 
-	http.HandleFunc("/", index)
-	http.HandleFunc("/about", about)
-
 	fmt.Println("Ready to serve rblog requests ...")
-	server.ListenAndServe()
+	log.Fatal(server.ListenAndServe())
 }
 
-var templates []string = []string{
-	"layout.html",
-	"head.html",
-	"header.html",
-	"index.html",
-	"footer.html",
+// handleArticle ... Handle an especific article request.
+func handleArticle(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	if article, ok := articles[vars["article"]]; ok {
+		article(w, r)
+	} else {
+		w.WriteHeader(http.StatusNotFound)
+        fmt.Fprintf(w, "Page Not Found.")
+	}
 }
 
-// "index" page for rblog.
+// index ... Handle "index" page.
 func index(w http.ResponseWriter, r *http.Request) {
 	templates[3] = "index.html"
-	fmt.Println(templates)
 	indexTemplate, err := template.ParseFiles(templates...)
 	if err == nil {
 		indexTemplate.ExecuteTemplate(w, "layout", "")
@@ -38,10 +59,9 @@ func index(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// "about" page for rblog.
+// about .. Handle "about" page.
 func about(w http.ResponseWriter, r *http.Request) {
 	templates[3] = "about.html"
-	fmt.Println(templates)
 	aboutTemplate, err := template.ParseFiles(templates...)
 	if err == nil {
 		aboutTemplate.ExecuteTemplate(w, "layout", "")

@@ -1,7 +1,8 @@
 
 FROM golang:alpine3.10
 
-RUN apk add --update
+RUN apk add --update && \
+    apk add git
 
 RUN addgroup rblog && \
     adduser -h /home/rblog -s /bin/ash -G rblog -D rblog
@@ -13,7 +14,7 @@ USER rblog:rblog
 
 ENV CGO_ENABLED 0
 
-RUN go get -d -v ./...
+RUN go get -v github.com/gorilla/mux
 
 WORKDIR /go/src/github.com/ronaldoafonso/rblog
 
