@@ -17,7 +17,7 @@ services:
   rblog:
     build:
       context: .
-    image: rblog:v0.0.8
+    image: rblog:v0.0.9
     volumes:
       - type: bind
         source: .
