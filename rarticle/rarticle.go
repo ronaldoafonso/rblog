@@ -22,29 +22,31 @@ var (
 
 func init() {
 	articles = make(map[string]func(http.ResponseWriter, *http.Request))
-	articles["index"] = HandleIndex
+	articles["index"] = index
 	articles["about"] = about
 }
 
-// HandleIndex ... Handle index page.
-func HandleIndex(w http.ResponseWriter, r *http.Request) {
+// HandleArticle ... Handle an rblog article.
+func HandleArticle(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	if len(vars) == 0 {
+		articles["index"](w, r)
+	} else if article, ok := articles[vars["article"]]; ok {
+		article(w, r)
+	} else {
+		w.WriteHeader(http.StatusNotFound)
+		fmt.Fprintf(w, "Page Not Found.")
+	}
+}
+
+// index ... Handle index page.
+func index(w http.ResponseWriter, r *http.Request) {
 	templates[3] = "rarticle/html/index.html"
 	indexTemplate, err := template.ParseFiles(templates...)
 	if err == nil {
 		indexTemplate.ExecuteTemplate(w, "layout", "")
 	} else {
 		fmt.Println(err)
-	}
-}
-
-// HandleArticle ... Handle an rblog article.
-func HandleArticle(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	if article, ok := articles[vars["article"]]; ok {
-		article(w, r)
-	} else {
-		w.WriteHeader(http.StatusNotFound)
-		fmt.Fprintf(w, "Page Not Found.")
 	}
 }
 

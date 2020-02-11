@@ -11,7 +11,7 @@ import (
 
 func main() {
 	router := mux.NewRouter()
-	router.HandleFunc("/", rarticle.HandleIndex)
+	router.HandleFunc("/", rarticle.HandleArticle)
 	router.HandleFunc("/{article}", rarticle.HandleArticle)
 	logRouter := handlers.LoggingHandler(os.Stdout, router)
 
