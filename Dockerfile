@@ -25,7 +25,11 @@ COPY --chown=rblog:rblog *.go /go/src/github.com/ronaldoafonso/rblog/
 
 COPY --chown=rblog:rblog rarticle/*.go /go/src/github.com/ronaldoafonso/rblog/rarticle/
 
+COPY --chown=rblog:rblog rarticle/html/br/*.html /go/src/github.com/ronaldoafonso/rblog/rarticle/html/br/
+
 COPY --chown=rblog:rblog rarticle/html/en/*.html /go/src/github.com/ronaldoafonso/rblog/rarticle/html/en/
+
+COPY --chown=rblog:rblog rarticle/html/es/*.html /go/src/github.com/ronaldoafonso/rblog/rarticle/html/es/
 
 RUN go install -v github.com/ronaldoafonso/rblog
 
