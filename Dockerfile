@@ -8,7 +8,7 @@ RUN addgroup rblog && \
     adduser -h /home/rblog -s /bin/ash -G rblog -D rblog
 
 RUN mkdir -p /go/src/github.com/ronaldoafonso/rblog && \
-    mkdir -p /go/src/github.com/ronaldoafonso/rblog/rarticle/html && \
+    mkdir -p /go/src/github.com/ronaldoafonso/rblog/rarticle/html/en && \
     chown -R rblog:rblog /go
 
 USER rblog:rblog
@@ -25,7 +25,7 @@ COPY --chown=rblog:rblog *.go /go/src/github.com/ronaldoafonso/rblog/
 
 COPY --chown=rblog:rblog rarticle/*.go /go/src/github.com/ronaldoafonso/rblog/rarticle/
 
-COPY --chown=rblog:rblog rarticle/html/*.html /go/src/github.com/ronaldoafonso/rblog/rarticle/html/
+COPY --chown=rblog:rblog rarticle/html/en/*.html /go/src/github.com/ronaldoafonso/rblog/rarticle/html/en/
 
 RUN go install -v github.com/ronaldoafonso/rblog
 

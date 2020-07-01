@@ -12,7 +12,7 @@ import (
 func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/", rarticle.HandleArticle)
-	router.HandleFunc("/{article}", rarticle.HandleArticle)
+	router.HandleFunc("/{lang}/{name}", rarticle.HandleArticle)
 	logRouter := handlers.LoggingHandler(os.Stdout, router)
 
 	server := &http.Server{
