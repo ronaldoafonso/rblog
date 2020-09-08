@@ -1,0 +1,34 @@
+{{ define "main" }}
+<main>
+  <p>BIND and TSIG (Transaction Signature)</p>
+  <p>Have you ever wondered what would happen if someone was able to change an IP address of your DNS zone?</p>
+  <p>Well, he or she could just redirect you website to his or her own. Can you imagine the damage?</p>
+  <p>I hope you can. That's today's topic.</p>
+  <p>So, I'm going to talk about TSIG. A way of authenticating DNS messages like "dynamic updates", "zone transfers" and "queries (request and responses)".</p>
+  <p>TSIG provides authentication and data integrity through the use of a hash algorithm.</p>
+  <p>How does it work?</p>
+  <p>Here, as an example, I'm going to describe how TSIG can improve a zone transfer, but it could be used in any kind of DNS transaction.</p>
+  <p>First of all a secret key is generated and shared between two DNS parties, like a master and a slave server.</p>
+  <p>Both servers must be configured to use that key.</p>
+  <p>For the master, we should use the following configuration in "/etc/named.conf":<p>
+  <p>allow-transfer { key "keyname"};</p>
+  <p>For the slave, we should use (also in "/etc/named.conf"):</p>
+  <p>masters { "ip_of_master" key "keyname"; };</p>
+  <p>This way, every time a slave requests a zone transfer from the master, the master server will use that key to sign the data before sending it the the slave.</p>
+  <p>The same way, the master will only start a zone transfer with a request that was signed with the same TSIG key.</p>
+  <p>In order to generate the key we should use the dnssec-keygen command. Like this:</p>
+  <p>dnssec-keygen -a hmac-sha256 -b 1024 -n HOST keyname</p>
+  <p>The result will be two files with the key and algorithm used. In this case HMAC-SHA256.</p>
+  <p>We could create a key section for the "/etc/named.conf" and include it in both the server and slave configuration.</p>
+  <p>An example is like this:</p>
+  <p>include /etc/named/keyfile.key;</p>
+  <p>And an example of the keyfile would be:</p>
+  <p>key "key" { algorithm HMAC-SHA256; secret "secret"; };</p>
+  <p>From now on your zone transfers will be authenticated.</p>
+  <p>An easy way to test it is using the "dig" command line. Something like this:</p>
+  <p>dig @ip_of_you_server -t axfr -y hmac:name:key your_domain_name</p>
+  <p>That's it!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+</main>
+{{ end }}
