@@ -1,0 +1,69 @@
+{{ define "main" }}
+<main>
+  <p>Protocol Buffer</p>
+  <p>What is it?</p>
+  <p>Well, Protocol Buffer, or just protobuf, is a way of serializing data (encode/decode) that is supported in many of today's modern computer programming languages.</p> 
+  <p>You use protobuf by creating a "file.proto" file where you define your message format.</p>
+  <p>After that, some code should be generated for you. You should use a protoc compiler in order to do that.</p>
+  <p>Finally you would be able to use your message format inside your application.</p>
+  <p>Following are just some advantages of Protocol Buffer:</p>
+  <ul>
+      <li>Less data to be transported by the network;</li>
+      <li>Less need of storage for the data;</li>
+      <li>Support in different computer programming languages;</li>
+      <li>Compatibility between computer programming languages (client and servers using different kind of languages);</li>
+  </ul>
+  <p>An example of a "file.proto" is like the following:</p>
+  <p><code>syntax = "proto3";</code></p>
+  <p><code>package task;</code></p>
+  <p><code>message Task {</code></p>
+  <p><code>    int32 id = 1;</code></p>
+  <p><code>    string name = 2;</code></p>
+  <p><code>    bool done = 3;</code></p>
+  <p><code>}</code></p>
+  <p>You should start the file by defining the protocol buffer version that will be used.</p>
+  <p>Following that you define a kind of message. Here I defined a "Task" message. This message will have an "id", a "name" and a "done" fields.</p>
+  <p>The numbers after each field name are known as "tags", the numbers are what will really be used in order to serialize the message since a simple number takes much less space than a field name (usually only one byte).</p>
+  <p>Some times you will need a "repeated" field (or an array in you favority computer programming language). So in order to have a repeated field in a protocol buffer message you just need to prepend the "repeated" word in front of that field. Like: <code>repeated string actions = 4;</code>. So the completed message would look like this:</p>
+  <p><code>syntax = "proto3";</code></p>
+  <p><code>package task;</code></p>
+  <p><code>message Task {</code></p>
+  <p><code>    int32 id = 1;</code></p>
+  <p><code>    string name = 2;</code></p>
+  <p><code>    bool done = 3;</code></p>
+  <p><code>    repeated string actions = 4;</code></p>
+  <p><code>}</code></p>
+  <p>You can even have comments in your "file.proto" file. As a lot of other programming languages the comments could be as double slashes (//) or as a multi-line comment like: /* your comment here */</p>
+  <p>Check out the new version of our proto.buf file:</p>
+  <p><code>syntax = "proto3";</code></p>
+  <p><code>package task;</code></p>
+  <p><code>// A representation of a task.</code></p>
+  <p><code>message Task {</code></p>
+  <p><code>    int32 id = 1;</code></p>
+  <p><code>    string name = 2;</code></p>
+  <p><code>    bool done = 3;</code></p>
+  <p><code>    repeated string actions = 4;</code></p>
+  <p><code>}</code></p>
+  <p>If you don't specify a initial value for a field, that field will start off with a "default value". Each type of field will have a specific "default value" and you can check it out on the Official Protocol Buffer page, but as an example the default value for a string is simply an empty string. For example:  "".</p>
+  <p>Once you have defined your "file.proto", you should use the command "protoc" to generate code for your computer programming languge of choise.</p>
+  <p>An example, using Golang, is like that:</p>
+  <p><code>protoc -Itaskpb --go_out=taskpb taskpb/task.proto</code></p>
+  <p>Off course, this is just a basic step for generating Golang code that could be used by your application, but check out my Github repository at <a href="https://github.com/ronaldoafonso/rprotobuf">rprotobuf</a> for a complete Dockerfile that creates the image with Golang code already generated.</p>
+  <p>You can also check the build image on Docker Hub clicking <a href="https://hub.docker.com/repository/docker/ronaldoafonso/rprotobuf">here</a>.</p>
+  <p>Basically, it will generate Golang code for the messages, in this case the message Task, that we defined in the "file.proto" file so we can manipulate those messages in Golang. One example would be a data type in Golang like:</p>
+  <p><code>type Task struct {</code></p>
+  <p><code>	Id      int32    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`</code></p>
+  <p><code>	Name    string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`</code></p>
+  <p><code>	Done    bool     `protobuf:"varint,3,opt,name=done,proto3" json:"done,omitempty"`</code></p>
+  <p><code>	Actions []string `protobuf:"bytes,4,rep,name=actions,proto3" json:"actions,omitempty"`</code></p>
+  <p><code>}</code></p>
+  <p>In the real code you should find more fields that are related to Protocol Buffer control. I've just simplified the code here to the thinks that really matter for us.</p>
+  <p>As you can see, this is just a Golang data type that you can use as any other data type.</p>
+  <p>Don't forget to clone my Github repository. There you can find the whole code for the application.</p>
+  <p>You can also see the real programm running if you issue:</p>
+  <p><code>docker container run ronaldoafonso/rprotobuf:0.0.1</code></p>
+  <p>That's it.</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+</main>
+{{ end }}

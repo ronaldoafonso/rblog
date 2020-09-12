@@ -1,0 +1,70 @@
+{{ define "main" }}
+<main>
+  <p>Protocol Buffer</p>
+  <p>O que é isso?</p>
+  <p>Protocol Buffer, ou simplesmente protobuf, é uma forma de serializar datos (encode/decode) e que é suportado por praticamente todas as linguagens de programação mais modernas.</p>
+  <p>Para usar o protobuf, você deve criar um arquivo "file.proto" onde definirá o formato da sua mensagem.</p>
+  <p>Feito isto, você usa protoc para gerar código que irá lidar com com as messagens os dados protobuf.</p>
+  <p>E assim você poderá usar as mensagens protobuf dentro da sua applicação.</p>
+  <p>Algumas das vantagens do protobuf são:</p>
+  <ul>
+    <li>Menos dados para serem transportados através da rede.</li>
+    <li>Menos necessidade de espaço de armazenamento.</li>
+    <li>É suportado por várias linguagens de programação.</li>
+    <li>Compatibilidade entre linguagens de programação (o client e o server podem ser desenvolvidos em linguagens de programação diferentes.</li>
+  </ul>
+  <p>Veja um exemplo de um arquivo "file.proto":</p>
+  <p><code>syntax = "proto3";</code></p>
+  <p><code>package task;</code></p>
+  <p><code>message Task {</code></p>
+  <p><code>    int32 id = 1;</code></p>
+  <p><code>    string name = 2;</code></p>
+  <p><code>    bool done = 3;</code></p>
+  <p><code>}</code></p>
+  <p>Você deve iniciar o arquivo definindo a versão do protocol buffer usada.</p>
+  <p>A partir daí, você define uma mensagem. No exemplo eu defini uma mensagem de atividade (Task). Esta mensagem terá um campo "id", um "nome" e um "done".</p>
+  <p>Os números após os campos são chamados de "tags" e serão usados no processo de serialização da mensagem.</p>
+  <p>As vezes precisamos de mensagens repetidas (um array pensando em termos de linguagem de programação). Para isso basta preceder o campo em questão com a palavra "repeated". Exemplo: <code>repeated string actions = 4;</code>. Então uma mensagem completa ficaria assim:</p>
+  <p><code>syntax = "proto3";</code></p>
+  <p><code>package task;</code></p>
+  <p><code>message Task {</code></p>
+  <p><code>    int32 id = 1;</code></p>
+  <p><code>    string name = 2;</code></p>
+  <p><code>    bool done = 3;</code></p>
+  <p><code>    repeated string actions = 4;</code></p>
+  <p><code>}</code></p>
+  <p>Podemos ter também comentários para a mensagens. Como em algumas linguaguem de programação usamos duas barras (//) ou a forma de multi linas, por exemplo: /* seu comentário aqui */.</p>
+  <p>Veja a nova versão do nosso arquivo proto.buf:</p>
+  <p><code>syntax = "proto3";</code></p>
+  <p><code>package task;</code></p>
+  <p><code>// A representation of a task.</code></p>
+  <p><code>message Task {</code></p>
+  <p><code>    int32 id = 1;</code></p>
+  <p><code>    string name = 2;</code></p>
+  <p><code>    bool done = 3;</code></p>
+  <p><code>    repeated string actions = 4;</code></p>
+  <p><code>}</code></p>
+  <p>Se um valor inicial não for especificado para um campo, este campo tera um valor inicial padrão. Cada tipo de campo tem um valor inicial padrão especifico e você pode descobrir este valor consultando o site oficial do Protocol Buffer. Como um exemplo poderia dizer o tipo string que tem como valor inicial padrão um string vazio: "".</p>
+  <p>Uma vez definida seu arquivo "file.proto", você deve usar o comando "protoc" para gerar código para a sua linguagem de programação escolhida.</p>
+  <p>Um example usando Golang é:</p>
+  <p><code>protoc -Itaskpb --go_out=taskpb taskpb/task.proto</code></p>
+  <p>Claro, este é somente um passo básico para gerar código em Golang para sua applicação. Porém, dê uma olhada no meu repositório Github em <a href="https://github.com/ronaldoafonso/rprotobuf">rprotobuf</a>. Lá você vai encontrar um arquivo Dockerfile completo para gerar código para uma aplicação em Golang.</p>
+  <p>Outra alternativa é baixar uma imagem já criada direto do Docker Hub em: <a href="https://hub.docker.com/repository/docker/ronaldoafonso/rprotobuf">here</a>.</p>
+  <p>Basicamente, ele irá gerar código Go para as messagens Task e assim poderemos manipular dados protobuf dentro da aplicação Golang.</p>
+  <p>Veja o example em Golang:</p>
+  <p><code>type Task struct {</code></p>
+  <p><code>	Id      int32    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`</code></p>
+  <p><code>	Name    string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`</code></p>
+  <p><code>	Done    bool     `protobuf:"varint,3,opt,name=done,proto3" json:"done,omitempty"`</code></p>
+  <p><code>	Actions []string `protobuf:"bytes,4,rep,name=actions,proto3" json:"actions,omitempty"`</code></p>
+  <p><code>}</code></p>
+  <p>No código real provavelmente você irá encontrar mais campos que os mostrados aqui, mas estes são para o controle do Protocol Buffer. Não se preocupe com isso. Só mostrei aqui os que realmente importam para nós.</p>
+  <p>Como você pode ver, esse é um tipo de dados como qualquer outro em Golang.</p>
+  <p>Não deixe de "clonar" o repositpório Github. Lá você vai encontrar o código completo de como usar o Protocol Buffer.</p>
+  <p>Para ver isso tudo funcionando, execute:</p>
+  <p><code>docker container run ronaldoafonso/rprotobuf:0.0.1</code></p>
+  <p>É isso</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+</main>
+{{ end }} 
