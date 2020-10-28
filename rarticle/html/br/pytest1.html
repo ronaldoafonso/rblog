@@ -1,0 +1,29 @@
+{{ define "main" }}
+<main>
+  <p><h3>Pytest - Artigo 1</h3></p>
+  <p>Este é o primeiro artigo sobre o framework de testes mais usado em Python, "pytest".</p>
+  <p>Hoje só vou descrever como criar um ambiente virtual e instalar o "pytest".</p>
+  <p>Aguarde outros artivos onde descrevo com mais detalhes como o utilizamos.</p>
+  <p>Para iniciar o ambiente virtual, você precisa pelo menos ter uma instalação de Python na sua máquina.</p>
+  <p>A maioria das distros Linux já vem com o Python instalado. Se por algum motivo a sua é diferente, dê uma olhada no seu gerenciador de pacotes e veja como instalar o Python.</p>
+  <p>Eu vou usar aqui o Python versão 3.8.2.</p>
+  <p>Para este primeiro artigo, você deve simplesmente executar os seguintes passos:</p>
+  <p><h5>Passo 1: Escolher o diretório do projeto</h5></p>
+  <p>Simplesmente vá até o diretório onde deseja que fique o seu projeto.</p>
+  <p>O meu será "/home/ronaldo/src/calc".</p>
+  <p><h5>Passo 2: Criar o ambiente virtual</h5></p>
+  <p>Dentro do diretório do projeto execute: python -m venv venv-3.8.2.</p>
+  <p>Feito isso, execute: source ./venv-3.8.2/bin/activate.</p>
+  <p>Pronto, o seu ambiente virtual está criado e ativado.</p>
+  <p><h5>Passo 3: Instalar o "pytest"</h5></p>
+  <p>Com o ambiente virtual já ativado, execute: pip install pytest.</p>
+  <p>Esse commando deve ser um pouco mais demorado, mas assim que terminar você já terá um ambiente "pytest" pronto para ser usado.</p>
+  <p>Para verificar se tudo está ok, execute: pytest --version.</p>
+  <p>Se você vir algo como: pytest 6.1.1, significa se o seu ambiente está pronto. Caso contrário, verifique novamente se você seguiu corretamente os passos anteriores.</p>
+  <p>Por enquanto é só isto. No próximo artigo vou mostrar como criar alguns testes e usar o recurso de "mark" de testes do "pytest".</p>
+  <p>Até lá!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+</main>
+{{ end }}
+

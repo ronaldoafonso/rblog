@@ -1,0 +1,13 @@
+{{ define "layout" }}
+<!DOCTYPE html>
+<html lang="en">
+{{ template "head.html" . }}
+<body>
+  {{ template "header.html" . }}
+  {{ block "main" . }}
+  <h1>Ronaldo Afonso</h1>
+  {{ end }}
+  {{ template "footer.html" }}
+</body>
+</html>`
+{{ end }}
