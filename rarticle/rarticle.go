@@ -42,7 +42,7 @@ func (a article) Handler(w http.ResponseWriter, r *http.Request) {
 
 // HandleArticle ... Handle an rblog article.
 func HandleArticle(w http.ResponseWriter, r *http.Request) {
-	a := article{Host: "localhost"}
+	a := article{Host: "www.ronaldoafonso.com.br"}
 	vars := mux.Vars(r)
 	if len(vars) == 2 {
 		a.Lang = vars["lang"]
