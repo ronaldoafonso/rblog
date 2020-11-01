@@ -12,10 +12,11 @@ import (
 type article struct {
 	lang string
 	name string
+	tpls []string
 }
 
-func (a *article) InitTemplates() []string {
-	return []string{
+func (a *article) InitTemplates() {
+	a.tpls = []string{
 		"rarticle/html/" + a.lang + "/layout.html",
 		"rarticle/html/" + a.lang + "/head.html",
 		"rarticle/html/" + a.lang + "/header.html",
@@ -24,14 +25,18 @@ func (a *article) InitTemplates() []string {
 	}
 }
 
-func (a article) Handler(w http.ResponseWriter, r *http.Request) {
-	templates := a.InitTemplates()
-	tmplt, err := template.ParseFiles(templates...)
+func (a *article) ExecuteTemplate(w http.ResponseWriter) {
+	tpl, err := template.ParseFiles(a.tpls...)
 	if err == nil {
-		tmplt.ExecuteTemplate(w, "layout", "")
+		tpl.ExecuteTemplate(w, "layout", "localhost")
 	} else {
 		fmt.Println(err)
 	}
+}
+
+func (a article) Handler(w http.ResponseWriter, r *http.Request) {
+	a.InitTemplates()
+	a.ExecuteTemplate(w)
 }
 
 // HandleArticle ... Handle an rblog article.

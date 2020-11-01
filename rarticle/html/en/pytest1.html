@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{$host := .}}
 <main>
   <p><h3>Pytest - Article 1</h3></p>
   <p>This is the first article about the most used Python framework for testing, "pytest".</p>
@@ -24,6 +25,7 @@
   <p>See you there!</p>
   <p>[]s</p>
   <p>Ronaldo Afonso</p>
+  <p>Previous: <a href="http://{{$host}}/en/rblog">rblog</a></p>
 </main>
 {{ end }}
 
