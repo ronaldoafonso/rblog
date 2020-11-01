@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{$host := .}}
 <main>
   <p>Hi there!</p>
   <p>My name is Ronaldo Afonso.</p>
@@ -14,6 +13,6 @@
   <p>I really hope you enjoy it.</p>
   <p>[]s</p>
   <p>Ronaldo Afonso</p>
-  <p>Seguiente: <a href="http://{{$host}}/es/pytest1">Pytest 1</a></p>
+  <p>Seguiente: <a href="http://{{.Host}}/{{.Lang}}/pytest1">Pytest 1</a></p>
 </main>
 {{ end }}

@@ -1,5 +1,4 @@
 {{ define "main" }}
-{{$host := .}}
 <main>
   <p><h3>Pytest - Articolo 1</h3></p>
   <p>Questo è il primo articolo sul framework Python più utilizzato per i test, il "pytest".</p>
@@ -25,7 +24,7 @@
   <p>Ci vediamo!</p>
   <p>[]s</p>
   <p>Ronaldo Afonso</p>
-  <p>Precedente: <a href="http://{{$host}}/it/rblog">rblog</a></p>
+  <p>Precedente: <a href="http://{{.Host}}/{{.Lang}}/rblog">rblog</a></p>
 </main>
 {{ end }}
 
