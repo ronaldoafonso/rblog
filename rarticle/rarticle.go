@@ -9,6 +9,10 @@ import (
 	"net/http"
 )
 
+var (
+	host = "localhost"
+)
+
 type article struct {
 	Lang string
 	Name string
@@ -42,7 +46,7 @@ func (a article) Handler(w http.ResponseWriter, r *http.Request) {
 
 // HandleArticle ... Handle an rblog article.
 func HandleArticle(w http.ResponseWriter, r *http.Request) {
-	a := article{Host: "www.ronaldoafonso.com.br"}
+	a := article{Host: host}
 	vars := mux.Vars(r)
 	if len(vars) == 2 {
 		a.Lang = vars["lang"]
@@ -56,4 +60,9 @@ func HandleArticle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	a.Handler(w, r)
+}
+
+// InitHost ... Init variable host for the rarticle package.
+func InitHost(h *string) {
+	host = *h
 }
