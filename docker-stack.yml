@@ -8,6 +8,7 @@ services:
       - rblog_internal_net
     deploy:
       replicas: 1
+    command: ["rblog", "-host=www.ronaldoafonso.com.br"]
   rblog_nginx:
     image: ronaldoafonso/rblog_nginx:v0.0.1
     networks:
