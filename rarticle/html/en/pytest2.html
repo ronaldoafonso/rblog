@@ -1,0 +1,34 @@
+{{ define "main" }}
+<main>
+  <p><h3>Pytest - Article 2</h3></p>
+  <p>This is the second article about the most used Python framework for testing, "pytest".</p>
+  <p>You can find the first one <a href="http://{{.Host}}/{{.Lang}}/pytest1">here</a>.</p>
+  <p>In the first article I just explained how to install "pytest".</p>
+  <p>So, I'm assuming that you already have a virtual environment with "pytest" installed.</p>
+  <p>The topic of this article is the "mark" feature of pytest.</p>
+  <p>Let me ask you something.</p>
+  <p>How could you execute just some of your tests instead of all the suite of tests?</p>
+  <p>Just in case you've forgotten it, you can find the project's code <a href="https://github.com/ronaldoafonso/rcalc">here</a></p>
+  <p>So, let's pretend that we have a Python module called "rcalc.py" and that we need to test four basic mathematic operations of it.</p>
+  <p>Usually we create a "test_rcalc.py" file to test the "rcalc.py" module.</p>
+  <p>Come on! Do it, clone my "rcalc" repository, check out the tag "v1.0" and take a look at the files. Specially the "test_rcalc.py" file.</p>
+  <p>You should notice that I created four "marks" in it (@mark.add, @mark.sub, @mark.multi, @mark.sub).</p>
+  <p>One "mark" for each test. Take a look at the "pytest.ini" file too. It's needed to list all my "marks".</p>
+  <p>If I'd like to test the module, I usually would execute the "pytest" command without flags. Like: pytest</p>
+  <p>But that would execute all the tests in the file.</p>
+  <p>Imagine how long it would take if I had thousands of tests.</p>
+  <p>In order to execute just one test, or just a set of tests, I'd better use a "mark".</p>
+  <p>So, let's say that I just want to execute the addition test. What do I have to do?</p>
+  <p>I just have to execute "pytest" with the "mark" add.</p>
+  <p>Like this: pytest -m add</p>
+  <p>I could also execute just two kinds of test. Like add and sub.</p>
+  <p>In order to do it, I should execute pytest with a "OR" in the "mark" switch.</p>
+  <p>Like: this: pytest -m "add or sub"</p>
+  <p>You can do the other tests, multi and div, by yourself</p>
+  <p>And that's it for today. In the next article I'm goint to show you how to use fixtures.</p>
+  <p>See you there!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Previous: <a href="http://{{.Host}}/{{.Lang}}/pytest1">pytest1</a></p>
+</main>
+{{ end }}
