@@ -1,0 +1,34 @@
+{{ define "main" }}
+<main>
+  <p><h3>Pytest - Artigo 2</h3></p>
+  <p>Este é o segundo artigo sobre o framework de testes mais usado em Python, o "pytest".</p>
+  <p>O primeiro pode ser encontrado <a href="http://{{.Host}}/{{.Lang}}/pytest1">aqui</a></p>
+  <p>No primeiro artigo eu simplesmente expliquei como instalar o "pytest".</p>
+  <p>Portanto eu estou assumindo que você já tem um ambiente virtual "pytest" instalado.</p>
+  <p>O tópico deste artigo é a funcionalidade "mark" do "pytest".</p>
+  <p>Deixe eu te perguntar uma coisa.</p>
+  <p>Como você executaria somente alguns testes em vez de todos os testes da sua aplicação?</p>
+  <p>Não se esqueça, você pode baixar todo o código do projeto "rcalc" <a href="https://github.com/ronaldoafonso/rcalc">aqui</a></p>
+  <p>Vamos imaginar que nós temos um módulo Python chamado "rcalc.py" e que precisamos testar quatro operações básicas deste módulo</p>
+  <p>Normalmente nós criamos um arquivo "test_rcalc.py" que irá testar o "rcalc.py"</p>
+  <p>Vamos lá! Clone o meu repositório "rcalc", faça um check out da tag "v1.0" e dê uma olhada nos arquivos. Em especial no arquivo "test_rcalc.py".</p>
+  <p>Note que eu criei quatro "marks" neste arquivo (@mark.add, @mark.sub, @mark.multi, @mark.sub).</p>
+  <p>Um "mark" para cada teste. Dê uma olhda no arquivo "pytest.ini" também. Ele é necessário para listar todos os "marks".</p>
+  <p>Se eu quiser testar o módulo, eu geralmente usaria o comando "pytest" sem flags. Assim: pytest</p>
+  <p>Mas isso iria executar todos os testes.</p>
+  <p>Imagine quanto tempo isso poderia demorar se eu tivesse um milhão de testes.</p>
+  <p>Para executar somente um teste, ou uma parte deles, o melhor seria usar "marks".</p>
+  <p>Então, vamos dizer que eu só queira executar os testes de adição. O que eu tenho que fazer?</p>
+  <p>Eu só preciso executar o "pytest" passando a flag de "mark" de adição.</p>
+  <p>Assim: pytest -m add</p>
+  <p>Eu poderia também executar somente dois tipos de testes. Os de adição e os de subtração.</p>
+  <p>Para isso eu deveria usar o "pytest" com um "OR" na flag de "mark".</p>
+  <p>Algo assim: pytest -m "add or sub"</p> 
+  <p>Faça os outros testes você mesmo.</p>
+  <p>Isso é tudo por hoje. No próximo artigo eu vou mostrar como usar "fixtures" no "pytest".</p>
+  <p>Até lá!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Anterior: <a href="http://{{.Host}}/{{.Lang}}/pytest1">pytest1</a></p>
+</main>
+{{ end }}
