@@ -1,0 +1,25 @@
+{{ define "main" }}
+<main>
+  <p><h3>Pytest - Artigo 3</h3></p>
+  <p>Este é o terceiro artigo sobre o framework de testes mais usado em Python, o "pytest".</p>
+  <p>O segundo pode ser encontrado <a href="http://{{.Host}}/{{.Lang}}/pytest2">aqui</a></p>
+  <p>Hoje vou falar sobre "fixture".</p>
+  <p>Um "fixture" é usado basicamente para inicializar seus testes.</p>
+  <p>Talvez você esteja se perguntando, como assim?</p>
+  <p>Vamos dar uma olhada em nosso projeto <a href="https://github.com/ronaldoafonso/rcalc">rcalc</a>.</p>
+  <p>Se você cloná-lo e usar a tag "v2.0", você verá que eu criei o arquivo "conftest.py".</p>
+  <p>Neste arquivo você verá um "fixture", ou uma função, que simplemente retorna uma sequência de "tupes".</p>
+  <p>Essas "tupes" serviram como dados para os nossos testes.</p>
+  <p>Eu só preciso declarar um "fixture" em um lugar e posso usá-lo em qualquer teste.</p>
+  <p>Dê uma olhada no arquivo "test_rcalc.py" também.</p>
+  <p>Lá você verá que eu passei o "fixture" como parâmetro para os meus testes.</p>
+  <p>Dentro dos testes eu posso usar o meu "data generator".</p>
+  <p>Agora toda vez que você executar seus tests, o "pytest" irá rodar o "fixture" para você.</p>
+  <p>Um uso muito comum dos "fixtures" é na inicialização de banco de dados.</p>
+  <p>Isso é tudo. Eu espero que estes artigos foram úteis para você.</p>
+  <p>Até o próximo!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Anterior: <a href="http://{{.Host}}/{{.Lang}}/pytest2">pytest2</a></p>
+</main>
+{{ end }}
