@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main>
+  <p><h3>Cloud Computing - Minha primeira impressão</h3></p>
+  <p>Olá, hoje eu gostaria de falar sobre Cloud Computing.</p>
+  <p>Acabei de entrar nesse mundo, claro, como um DevOps engineer e não como um usuário já que a computação em nuvem está aí há um bom tempo.</p>
+  <p>Comecei lendo sobre AWS, mas logo um serviço chamado S3 me saltou aos olhos.</p>
+  <p>Muito resumidamente, o serviço S3 nada mais é que espaço de dados na nuvem.</p>
+  <p>Você pode criar, copiar, remover e apagar conteúdo do seu computador para o S3 e do S3 para o seu computador.</p>
+  <p>Bom, isso tudo é muito interessante ... mas o que realmente me chamou a atenção foi o fato de que usar a nuvem é muito parecido com usar o seu ambiente local.</p>
+  <p>Por exemple, para copiar um arquivo da sua máquina para o S3 você só precisa executar um comando "aws s3 cp".</p>
+  <p>Algo assim: aws s3 cp file.txt s3://ronaldoafonso<p>
+  <p>Para o processo inverso você executa: aws s3 cp s3://ronaldoafonso/file.txt file.txt<p>
+  <p>Simples assim.</p>
+  <p>Não lhe parece aquele antigo comando "cp" que você executou pela primeira vez quando estava aprendendo o Linux shell?<p>
+  <p>Para mim parece muito.</p>
+  <p>Isso é tudo. Eu sei que é um artigo curto, mas a minha intensão aqui é somente fazer você parar para pensar sobre onde a nuvem está nos levando.</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Anterior: <a href="http://{{.Host}}/{{.Lang}}/pytest3">pytest3</a></p>
+</main>
+{{ end }}
