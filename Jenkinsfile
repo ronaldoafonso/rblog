@@ -17,6 +17,7 @@ pipeline {
     post {
         always {
             sh "docker-compose down"
+            mail body: "Build: ${env.BUILD_URL}", subject: 'rblog Build Status', to: 'ronaldo@vpn.ronaldoafonso.com.br'
         }
     }
 }
