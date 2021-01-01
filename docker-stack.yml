@@ -3,7 +3,7 @@ version: '3.7'
 
 services:
   rblog:
-    image: ronaldoafonso/rblog:v0.0.26
+    image: ronaldoafonso/rblog:v0.0.27
     networks:
       - rblog_internal_net
     deploy:
