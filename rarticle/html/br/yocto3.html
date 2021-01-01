@@ -1,0 +1,31 @@
+{{ define "main" }}
+<main>
+  <p><h3>Yocto - Linux Embedded Serie 3.</h3></p>
+  <p>Olá</p>
+  <p>Este é o terceiro artigo desta série.</p>
+  <p>Você pode encontrar o primeiro <a href="http://{{.Host}}/{{.Lang}}/yocto1">aqui</a>.</p>
+  <p>No artigo <a href="http://{{.Host}}/{{.Lang}}/yocto2">anterior</a> eu falei sobre o projeto Yocto.</p>
+  <p>Agora é hora de falar sobre como preparar uma build machine.</p>
+  <p>O que é ou para que serve uma build machine?</p>
+  <p>Para criar uma imagem customizado do seu sistema Linux, você irá precisar de outro sistema Linux.</p>
+  <p>Bem, você precisa de uma distribuição Linux "tradicional" onde possa baixar o projeto Yocto, e aí então construir a sua distribuição Linux.</p>
+  <p>Vou usar aqui o Debian 10 "buster", mas existem outras distribuições que podem ser usadas como uma build machine.</p>
+  <p>No presente momento, os pré-requisitos para uma build machine são:</p>
+  <ul>
+    <li>50 Gbytes de espaço em disco.</li>
+    <li>Git 1.8.3.1 ou mais atual.</li>
+    <li>tar 1.28 ou mais atual.</li>
+    <li>Python 3.50 ou mais atual.</li>
+    <li>gcc 5.0 ou mais atual.</li>
+  </ul>
+  <p>Dependendo da sua distribuição Linux, você precisará de uma certa lista de pacotes instalados.</p>
+  <p>No caso do Debian 10, você precisará:</p>
+  <p><code>apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev</code></p>
+  <p>É isso.</p>
+  <p>No próximo artigo eu vou falar sobre o "<a href="https://www.yoctoproject.org/software-item/poky/">poky</a>". O software usado para a geração do sistema Linux customizado.</p>
+  <p>Fique atento!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Anterior: <a href="http://{{.Host}}/{{.Lang}}/yocto1">yocto1</a></p>
+</main>
+{{ end }}

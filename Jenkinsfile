@@ -7,9 +7,9 @@ pipeline {
         stage("Building Images") {
             steps {
                 sh "docker-compose up --detach --build"
-                sh "docker image tag rblog:v0.0.27 ronaldoafonso/rblog:v0.0.27 "
+                sh "docker image tag rblog:v0.0.28 ronaldoafonso/rblog:v0.0.28"
                 sh "docker image tag rblog_nginx:v0.0.1 ronaldoafonso/rblog_nginx:v0.0.1"
-                sh "docker image push ronaldoafonso/rblog:v0.0.27 "
+                sh "docker image push ronaldoafonso/rblog:v0.0.28"
                 sh "docker image push ronaldoafonso/rblog_nginx:v0.0.1"
             }
         }

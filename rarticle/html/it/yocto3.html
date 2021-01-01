@@ -1,0 +1,32 @@
+{{ define "main" }}
+<main>
+  <p><h3>Yocto - Serie Linux Incorporato 3.</h3></p>
+  <p>Ciao.</p>
+  <p>Questo è il terzo articolo di questa serie.</p>
+  <p>Puoi trovare il primo <a href="http://{{.Host}}/{{.Lang}}/yocto1">qui</a>.</p>
+  <p>Nell'<a href="http://{{.Host}}/{{.Lang}}/yocto2">ultimo</a> articolo ho parlato del progetto Yocto stesso.</p>
+  <p>Ora è il momento di parlare di una build machine.</p>
+  <p>Ma cos'è una build machine?</p>
+  <p>Per creare un'immagine del tuo sistema Linux personalizzato, avrai bisogno di un altro sistema Linux.</p>
+  <p>Bene, hai bisogno di una distribuzione Linux "tradizionale" dove puoi scaricare il progetto Yocto, in modo che possa costruire un sistema Linux personalizzato per te.</p>
+  <p>Userò un Debian 10 "buster" qui, ma ci sono altre distribuzioni Linux che puoi usare come build machine.</p>
+  <p>In questo momento, i prerequisiti per una build machine sono:</p>
+  <ul>
+    <li>50 Gbytes di spazio libero su disco.</li>
+    <li>Git 1.8.3.1 o superior.</li>
+    <li>tar 1.28 o superior.</li>
+    <li>Python 3.50 o superior.</li>
+    <li>gcc 5.0 o superior.</li>
+  </ul>
+  <p>A seconda della tua distribuzione Linux, avrai bisogno di un certo elenco di pacchetti installati.</p>
+  <p>Nel caso di Debian 10, sarebbe:</p>
+  <p><code>apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping python3-git python3-jinja2 libegl1-mesa libsdl1.2-dev pylint3 xterm python3-subunit mesa-common-dev</code></p>
+  <p>Questo è tutto.</p>
+  <p>Nel prossimo articolo parlerò di "<a href="https://www.yoctoproject.org/software-item/poky/">poky</a>", il software utilizzato per generare un sistema Linux personalizzato.</p>
+  <p>Rimanete sintonizzati!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Precedente: <a href="http://{{.Host}}/{{.Lang}}/yocto1">yocto1</a></p>
+  <p>Prossimo: <a href="http://{{.Host}}/{{.Lang}}/yocto3">yocto3</a></p>
+</main>
+{{ end }}
