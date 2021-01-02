@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main>
+  <p><h3>Yocto - Serie Linux Integrado 4.</h3></p>
+  <p>Hola.</p>
+  <p>Este es lo cuarto artícolo de esta serie.</p>
+  <p>Puedes encontrar el primero <a href="http://{{.Host}}/{{.Lang}}/yocto1">aquí</a>.</p>
+  <p>En lo artícolo <a href="http://{{.Host}}/{{.Lang}}/yocto3">anterior</a> he hablado sobre la build machine.</p>
+  <p>Ahora es el momento de hablar sobre o proyecto poky.</p>
+  <p>Bueno, qué es poky?</p>
+  <p>Poky es conocido como una distribuición de referencia del proyecto Yocto.</p>
+  <p>Es decir, es un template para construir un sistema Linux personalizado.</p>
+  <p>Contiene proyectos como BitBake, OpenEmbedded Core y Metadata que nos guían en el proceso de construcción de un sistema Linux personalizado.</p>
+  <p>Voy a describir todos los otros proyectos uno por uno, pero aquí veamos cómo empezar con poky.</p>
+  <p>En primer lugar, necesitamos clonar el código poky y ejecutarlo en nuestra build machine.</p>
+  <p>Basicamente eso:</p>
+  <p><code>git clone http://git.yoctoproject.org/cgit/cgit.cgi/poky</code></p>
+  <p><code>cd pody</code></p>
+  <p><code>git fetch --tags</code></p>
+  <p><code>git checkout tags/yocto-3.2</code></p>
+  <p>Tenga en cuenta que estoy usando un branch específico aquí, ¿ok?</p>
+  <p>Usaré lo "default target" aquí. Es la forma más sencilla de empezar. Después de tener la idea básica de cómo lo Yocto funciona, puede probar otros más avanzados.</p>
+  <p><code>source oe-init-build-env</code></p>
+  <p><code>bitbake core-image-minimal</code></p>
+  <p>Ahora debes tener una imagen que puede ejecutar en su computadora. Por supuesto, lo ejecutará a través de <a href="https://www.qemu.org/">QEMU</a>, que es un emulador.</p>
+  <p><code>runqemu qemux86</code></p>
+  <p>Después de unos segundos, deberá ver un dispositivo funcionando como si fuera un dispositivo integrado.</p>
+  <p>En lo articolo seguiente, hablaré sobre Metadata.</p>
+  <p>Nos vemos!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Anterior: <a href="http://{{.Host}}/{{.Lang}}/yocto3">yocto3</a></p>
+</main>
+{{ end }}

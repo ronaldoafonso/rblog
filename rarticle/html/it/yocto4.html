@@ -1,0 +1,34 @@
+{{ define "main" }}
+<main>
+  <p><h3>Yocto - Serie Linux Incorporato 4.</h3></p>
+  <p>Ciao.</p>
+  <p>Questo è il quarto articolo di questa serie.</p>
+  <p>Puoi trovare il primo <a href="http://{{.Host}}/{{.Lang}}/yocto1">qui</a>.</p>
+  <p>Nell'<a href="http://{{.Host}}/{{.Lang}}/yocto3">ultimo</a> articolo ho parlato di build machine.</p>
+  <p>Ora è il momento di parlare del progetto Poky.</p>
+  <p>Ma cos'è il Poy?</p>
+  <p>Poly è conosciuto come una distribuzione di riferimento del progetto Yocto.</p>
+  <p>È un template per costruire un sistema Linux personalizzato.</p>
+  <p>Contiene progetti come BitBake, OpenEmbedded Core e Metadata che ci guidano nel processo di creazione di un sistema Linux personalizzato.</p>
+  <p>Descriverò tutti questi altri progetti a turno, ma qui vediamo come iniziare con poky.</p>
+  <p>Prima di tutto, dobbiamo clonare il codice poky ed eseguirlo nella nostra build machine.</p>
+  <p>Fondamentalmente questo:</p>
+  <p><code>git clone http://git.yoctoproject.org/cgit/cgit.cgi/poky</code></p>
+  <p><code>cd pody</code></p>
+  <p><code>git fetch --tags</code></p>
+  <p><code>git checkout tags/yocto-3.2</code></p>
+  <p>Nota che sto usando un branch specifico qui, ok?</p>
+  <p>Userò il target "default" qui. È il modo più semplice per iniziare. Dopo aver ottenuto l'idea di base di come funziona Yocto, puoi provare quelli più avanzati.</p>
+  <p><code>source oe-init-build-env</code></p>
+  <p><code>bitbake core-image-minimal</code></p>
+  <p>Ora dovresti avere un'immagine che puoi eseguire sul tuo computer. Ovviamente lo eseguirai tramite <a href="https://www.qemu.org/">QEMU</a>, che è un emulatore.</p>
+  <p><code>runqemu qemux86</code></p>
+  <p>Dopo alcuni secondi dovresti vedere un dispositivo in esecuzione come se fosse un dispositivo incorporato.</p>
+  <p>Questo è tutto.</p>
+  <p>Nel prossimo articolo parlerò di Metadata.</p>
+  <p>Rimanete sintonizzati!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Precedente: <a href="http://{{.Host}}/{{.Lang}}/yocto3">yocto3</a></p>
+</main>
+{{ end }}
