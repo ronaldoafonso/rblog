@@ -3,13 +3,28 @@
   <p><h3>Docker Security 1</h3></p>
   <p>Hi.</p>
   <p>This is the first article of a series of articles about Docker security.</p>
-  <p>Do you run containers?</p>
-  <p>I guess you do.</p>
-  <p>If I ask you how secure is your deployment? What would you answer me?</p>
+  <p>Do you run containers? I guess you do.</p>
+  <p>And if I ask you how secure is your container's deployment? What would you answer me?</p>
   <p>Do you scan your images before running them on production?</p>
   <p>Do you run your dockerized application as "root"?</p>
-  <p>How do you pass sensitive data, like certs and passwords, to your containers? How do you do it?</p>
+  <p>How do you pass sensitive data, like certs and passwords, to your containers?</p>
+  <p>Are you 100% sure that the image you pulled from your registry is actually the image you pushed earlier?</p>
   <p>Well, these questions and others are what this series of articles is all about.</p>
+  <p>I'm not a security expert, but I started to think about all these questions and decided to take a better look into them.</p>
+  <p>Of course, there are many more security-related issues than what I'm going to expose here, but I think these articles would be a good starting point.</p>
+  <p>Following are some of the topics I'm intending to address here:</p>
+  <ul>
+    <li>Is the application code running inside your container secure?.</li>
+    <li>How is your container image configured?</li>
+    <li>How secure is the machine where you build your container images?</li>
+    <li>How do you reliably pull and push images?</li>
+    <li>How should you run or configure your containers?</li>
+    <li>How secure is the machine where you run your containers?</li>
+    <li>How do you pass secrets to your containers?</li>
+    <li>How do your containers securely use the network?</li>
+    <li>How to deal with container escape vulnerabilities?</li>
+  </ul>
+  <p>As I'm writing these articles I'm also learning with you. So, I'd like to apologize in advance for any inconsistencies you may find and I really hope you like it.</p>
   <p>As always, stay tuned!</p>
   <p>[]s</p>
   <p>Ronaldo Afonso</p>
