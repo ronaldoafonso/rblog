@@ -1,0 +1,33 @@
+{{ define "main" }}
+<main>
+  <p><h3>Segurança em Docker 1</h3></p>
+  <p>Olá.</p>
+  <p>Este é o primeiro artigo de uma séria de artigos sobre segurança em Docker.</p>
+  <p>Você usa contêineres? Muito provavelmente sim.</p>
+  <p>E se eu te perguntasse quão seguro é o seu deployment, o que você me responderia?</p>
+  <p>Você escaneia suas imagens antes de rodá-las em produção?</p>
+  <p>Você roda sua aplicação em docker como "root"?</p>
+  <p>Como vocẽ passa dados secretos, como certificados e senhas, para seus contêineres?</p>
+  <p>Você tem 100% de certeza de que a imagem que está baixando é a mesma que você carregou no seu Docker registry?</p>
+  <p>Bom, sobre estas questões e outras é o que esta séria de artigos fala.</p>
+  <p>Eu não sou um expert em segurança, mas comecei a pensar sobre estas questões e resolvi dar uma olhada melhor nelas.</p>
+  <p>Claro, existe muita mais coisa relacionada à segurança do que eu vou expor aqui, mas eu acho que estes artigos são um ótimo ponto de partida.</p>
+  <p>A seguir estão alguns dos tópicos abordados:</p>
+  <ul>
+    <li>A aplicação que roda dentro do seu contêiner é segura?</li>
+    <li>Como está configurada a imagem do seu contêiner?</li>
+    <li>O quão segura é a máquina onde você cria suas imagems?</li>
+    <li>O pull e o push das suas imagems são confiáveis?</li>
+    <li>Como se deve configurar e rodar contêineres?</li>
+    <li>O quão segura é a máquina onde você roda os seus contêineres?</li>
+    <li>Como você passa segredos para seus contêineres?</li>
+    <li>Como seus contêineres usam uma rede de forma segura?</li>
+    <li>Como lidar com vulnerabilidades do tipo container escape?</li>
+  </ul>
+  <p>Conforme vou escrevendo estes artigos eu também estou aprendendo. Então, desde já, eu peço desculpas por qualquer inconsistência encontrada aqui.</p>
+  <p>Como sempre, fique ligado!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Anterior: <a href="http://{{.Host}}/{{.Lang}}/yocto4">yocto4</a></p>
+</main>
+{{ end }}
