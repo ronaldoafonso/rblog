@@ -17,7 +17,7 @@ services:
   rblog:
     build:
       context: .
-    image: rblog:v1.1
+    image: rblog:v1.mdns
     volumes:
       - type: bind
         source: .

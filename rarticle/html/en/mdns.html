@@ -1,0 +1,21 @@
+{{ define "main" }}
+<main>
+  <p>Hi there!</p>
+  <p>Today I want to talk about mDNS. Have you ever heard about it? I haven't, but I was required to do some work on it and had to learn about it.</p>
+  <p>So, what is mDNS anyway?</p>
+  <p>It stands for Multicast Domain Name System and is used to resolve local hostnames.</p>
+  <p>It works like this:</p>
+  <p>If you try to reach, let's say using "ping", a hostname that contains a ".local" as its TLD, or top-level domain, your resolver should try to send a multicast DNS request to your local network instead of using the normal DNS server process.</p>
+  <p>mDNS is very useful for vendors who sell a lot of network equipment and when those equipment need to talk to each other.</p>
+  <p>A good example would be "Google". Doesn't it make sense for your Android trying to reach a Chromecast as soon as it "enters" a new local network? Well, it does a lot of sense to me.</p>
+  <p>Basically, a command like ping Chromecast.local should make any device with a hostname as "Chromecast" in a local network respond with its own IP address.</p>
+  <p>Normally your resolver will generate a multicast request using 244.0.00.251, for IPv4, and ff02::fb, for IPv6, and send it out to your interfaces.</p>
+  <p>Usually a daemon, an example would be "avahi-daemon", listening to a multicast address will respond with the IP address.<p>
+  <p>Well, that's it. If I were you I would try to ping your hostnames postfixed with a ".local" in your local network and check who would respond. Maybe it would surprise you!</p>
+  <p>See you!</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Previous: <a href="http://{{.Host}}/{{.Lang}}/previous">previous</a></p>
+  <p>Next: <a href="http://{{.Host}}/{{.Lang}}/next">next</a></p>
+</main>
+{{ end }}
