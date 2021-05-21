@@ -1,0 +1,20 @@
+{{ define "main" }}
+<main>
+  <p><h3>Design Pattern - Singleton</h3></p>
+  <p>Hi.</p>
+  <p>Today I'll talk about the "Singleton" design pattern.</p>
+  <p>Have you already heard about that?</p>
+  <p>What is the "Singleton" design pattern?</p>
+  <p>Well, it is considered the easiest design pattern, and the main idea behind it is that a class should have only one instance of it during the entire execution of a program.</p>
+  <p>The "singleton" design pattern is usually used when we don't need to have more than one instance of some class. For example, imagine that your application has to access a remote Linux server via an SSH connection and execute a command every five minutes. So, it doesn't make sense to open a new SSH connection each time a new command should be executed.</p>
+  <p>For situations like that, we can leverage the "singleton" design pattern.</p>
+  <p>I have two implementations of the "singleton" design pattern.</p>
+  <p>One in <a href="https://github.com/ronaldoafonso/rpythonpatterns/tree/main/singleton">Python</a> and another one in <a href="https://github.com/ronaldoafonso/rgopatterns/tree/main/singleton">Golang</a>.</p>
+  <p>Feel free to check them out.</p>
+  <p>If you look at the code, you'll see that, before returning a new instance, I check if another one hasn't already been created, if so, I just return that instance. Otherwise, I create a new instance and return it.
+  <p>Hope it was useful.</p>
+  <p>[]s</p>
+  <p>Ronaldo Afonso</p>
+  <p>Previous: <a href="http://{{.Host}}/{{.Lang}}/dockersec1">dockersec1</a></p>
+</main>
+{{ end }}
