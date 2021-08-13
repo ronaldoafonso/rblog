@@ -16,6 +16,7 @@ func main() {
 
 	router := mux.NewRouter()
 	router.HandleFunc("/", rarticle.HandleArticle)
+	router.HandleFunc("/{lang}/subscribed", rarticle.HandleSubscriber)
 	router.HandleFunc("/{lang}/{name}", rarticle.HandleArticle)
 	logRouter := handlers.LoggingHandler(os.Stdout, router)
 
