@@ -7,6 +7,7 @@ import (
 	"github.com/gorilla/mux"
 	"html/template"
 	"net/http"
+	"os"
 )
 
 var (
@@ -68,8 +69,14 @@ func HandleSubscriber(w http.ResponseWriter, r *http.Request) {
 	subscriber := r.FormValue("subscriber")
 	email := r.FormValue("email")
 
-	// Write it somewhere
-	fmt.Printf("%v (%v): %v.\n", subscriber, email, lang)
+	f, err := os.OpenFile("/tmp/subscriber.txt", os.O_APPEND|os.O_WRONLY|os.O_CREATE, 0600)
+	if err != nil {
+		w.WriteHeader(500)
+		return
+	}
+	defer f.Close()
+
+	fmt.Fprintf(f, "%v,%v,%v\n", subscriber, email, lang)
 
 	a := article{
 		Name: "subscribed",
